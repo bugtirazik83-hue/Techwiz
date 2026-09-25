@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BudgetBasics: learn to budget before real money is on the line</title>
+<meta name="description" content="A private budgeting simulator for students and beginners. Nothing is saved or sent anywhere.">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap bar1"><a class="brand" href="#home">Budget<b>Basics</b></a><nav aria-label="Main"><ul id="nav"></ul></nav>
+<button class="ghost" id="theme" aria-pressed="false">Dark mode</button></div></header>
+<div class="ticker" aria-label="Money tip"><div class="wrap"><span id="tip"></span><span id="clock" class="clockbit"></span><span id="visitct" class="clockbit"></span></div></div>
+<main id="main" tabindex="-1">
+
+<section class="page" id="home"><div class="hero"><div class="wrap two">
+<div><h1>Split your first paycheck before you spend it.</h1>
+<p>BudgetBasics is a practice space for students and beginners. Try the numbers, make the mistakes here, and keep your real money safe.</p>
+<div class="row"><a class="btn" href="#rule" style="display:inline-flex;align-items:center;text-decoration:none">Learn the 50-30-20 rule</a><a class="ghost" href="#planner" style="display:inline-flex;align-items:center;text-decoration:none">Open the expense planner</a></div>
+<p class="mut">No bank links. No accounts. Everything you type stays in this browser tab.</p>
+<canvas id="gl" role="img" aria-label="Interactive 3D bar chart of needs, wants and savings. Move your pointer over it to rotate the view."></canvas></div>
+<div class="panel"><h2 style="font-size:1.4rem">Try it: your monthly income</h2>
+<div class="f"><label for="hin">Monthly income</label><input id="hin" inputmode="decimal" value="50000" autocomplete="off"></div>
+<div class="err" id="herr" role="alert"></div><div id="hout"></div></div></div></div>
+<div class="wrap"><h2 style="margin-top:48px">Start anywhere</h2><div class="grid" id="cards"></div>
+<p class="mut" id="visits" aria-live="polite"></p></div></section>
+
+<section class="page" id="basics"><div class="wrap"><h1 class="s">Budgeting basics</h1>
+<p>A budget is a plan for your money: what comes in, what goes out, and what you keep.</p>
+<div class="tbl"><table><caption class="mut" style="text-align:left;padding:8px 0">Five words you will use every day</caption><tr><th>Term</th><th>Meaning</th><th>Student example</th></tr>
+<tr><td>Income</td><td>Money coming in</td><td>Allowance, part-time pay, a scholarship</td></tr>
+<tr><td>Expenses</td><td>Money going out</td><td>Bus pass, lunch, phone plan</td></tr>
+<tr><td>Needs</td><td>Costs you cannot skip</td><td>Rent, groceries, tuition, transport to class</td></tr>
+<tr><td>Wants</td><td>Nice to have, can wait</td><td>Concert tickets, a third streaming app</td></tr>
+<tr><td>Savings</td><td>Money set aside for later</td><td>Emergency fund, laptop fund</td></tr></table></div>
+<h2>Fixed and variable costs</h2>
+<div class="grid"><div><h3>Fixed</h3><p>Same amount each month, so you can plan for it.</p><p class="mut">Rent, phone plan, subscriptions.</p></div>
+<div><h3>Variable</h3><p>Changes month to month, so this is where you have control.</p><p class="mut">Food delivery, fuel, clothes, outings.</p></div>
+<div><h3>Income sources</h3><p>Count only money you can rely on. Budget one-off gifts separately.</p><p class="mut">Allowance, wages, freelance, gifts.</p></div></div>
+<h2>Knowledge check</h2><div class="panel" id="q1"></div></div></section>
+
+<section class="page" id="needs-wants"><div class="wrap"><h1 class="s">Needs vs wants</h1>
+<div class="two"><div><p>Sort each item. The answer often depends on the version: groceries are a need, a daily restaurant lunch is a want.</p><div class="panel" id="q2"></div></div>
+<div><h2 style="font-size:1.5rem">Decision guide</h2><div class="panel"><p><b>1. What happens if I skip it?</b> If you lose housing, food, health, or school access, it is a need.</p><p><b>2. Is there a cheaper version?</b> Keep the need, downgrade the extras.</p><p><b>3. Can it wait 30 days?</b> If yes, wait. Many wants fade.</p><p class="mut" style="margin:0">Tip: write wants on a list and review it monthly.</p></div></div></div></div></section>
+
+<section class="page" id="rule"><div class="wrap"><h1 class="s">The 50-30-20 rule</h1>
+<p>A starting guideline: half of income for needs, 30% for wants, 20% for savings. Adjust it to your life.</p>
+<div class="panel"><div class="f"><label for="rin">Monthly income</label><input id="rin" inputmode="decimal" placeholder="For example 50,000" autocomplete="off"></div>
+<button class="btn" id="rbtn">Calculate split</button><div class="err" id="rerr" role="alert"></div><div id="rout" aria-live="polite"></div></div></div></section>
+
+<section class="page" id="goals"><div class="wrap"><h1 class="s">Savings goals</h1>
+<p>Find out how many months a goal will take at the pace you choose.</p>
+<div class="two"><div class="panel"><div class="f"><label for="gt">Target amount</label><input id="gt" inputmode="decimal" placeholder="80,000"></div><div class="f"><label for="gc">Saved so far</label><input id="gc" inputmode="decimal" value="0"></div><div class="f"><label for="gm">Saving each month</label><input id="gm" inputmode="decimal" placeholder="5,000"></div><button class="btn" id="gbtn">Estimate my goal</button><div class="err" id="gerr" role="alert"></div></div>
+<div class="panel" id="gout" aria-live="polite"><p class="mut">Your estimate will appear here.</p></div></div></div></section>
+
+<section class="page" id="planner"><div class="wrap"><h1 class="s">Expense planner</h1>
+<p>Log expenses for a practice month. Entries disappear when you close the tab. The three below are samples; delete them freely.</p>
+<div class="two"><div><form class="panel" id="pf" novalidate><div class="f"><label for="pn">What was it for?</label><input id="pn" maxlength="40"></div>
+<div class="f"><label for="pc">Category</label><select id="pc"><option>Needs</option><option>Wants</option><option>Savings</option></select></div>
+<div class="f"><label for="pa">Amount</label><input id="pa" inputmode="decimal"></div><div class="err" id="perr" role="alert"></div>
+<button class="btn" id="psave">Add expense</button> <button type="button" class="ghost" id="pcancel" hidden>Cancel edit</button></form></div>
+<div><div class="panel"><div class="f"><label for="pb">Sample monthly budget</label><input id="pb" inputmode="decimal" value="30000"></div><div id="psum" aria-live="polite"></div></div></div></div>
+<div class="tbl"><table><thead><tr><th>Item</th><th>Category</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="pl"></tbody></table></div></div></section>
+
+<section class="page" id="mistakes"><div class="wrap"><h1 class="s">Money mistakes</h1><p>Open a scenario, then read the fix.</p><div id="mm"></div></div></section>
+
+<section class="page" id="gallery"><div class="wrap"><h1 class="s">Learning gallery</h1><p>Original infographics, each with a text description.</p>
+<div class="row" id="gf" role="group" aria-label="Filter by topic"></div><div class="grid" id="gg"></div></div></section>
+
+<section class="page" id="search"><div class="wrap"><h1 class="s">Search BudgetBasics</h1>
+<form id="sf" class="row" style="flex-wrap:nowrap" role="search"><label class="sr" for="si">Search lessons</label><input id="si" type="search" placeholder="Try: emergency, impulse, fixed"><button class="btn">Search</button></form>
+<div class="row" id="sc" role="group" aria-label="Filter results by section"></div><p id="sn" class="mut" aria-live="polite"></p><div class="grid" id="sr"></div></div></section>
+
+<section class="page" id="about"><div class="wrap"><h1 class="s">About us</h1>
+<div class="grid"><div><h3>Our purpose</h3><p>We help students learn budgeting habits with zero risk. No real accounts, no permanent records.</p></div>
+<div><h3>Privacy promise</h3><p>Everything runs in your browser. Refresh the page and your entries are gone.</p></div>
+<div><h3>Who this is for</h3><p>Students, college learners, and anyone starting out with their first paycheck, allowance, or scholarship.</p></div></div>
+<h2>Contact us</h2>
+<div class="two"><div id="contactcard"><h3>Get in touch</h3><p>Email: hello@budgetbasics.example<br>Replies within 3 school days.</p><p class="mut">Learn more: <a href="https://www.consumerfinance.gov/consumer-tools/educator-tools/youth-financial-education/" target="_blank" rel="noopener">Youth financial education hub<span class="ext" aria-label="opens in a new tab"> ↗</span></a></p><p class="mut">Please never send bank details or passwords.</p></div>
+<div><h3>Prefer to write instead?</h3><p class="mut">Send feedback below. Nothing is stored or transmitted.</p></div></div>
+<h2>Feedback</h2>
+<p>Tell us what worked and what confused you. Your message stays in this tab; nothing is sent.</p>
+<form class="panel" id="ff" novalidate style="max-width:640px"><div class="f"><label for="fe">Email (so we could reply)</label><input id="fe" type="email" autocomplete="off"></div>
+<div class="f"><label for="fr">How useful was this site?</label><select id="fr"><option value="">Choose a rating</option><option>5 Very useful</option><option>4 Useful</option><option>3 Okay</option><option>2 Confusing</option><option>1 Not useful</option></select></div>
+<div class="f"><label for="fm">Your message (10 or more characters)</label><textarea id="fm" rows="5"></textarea></div><div class="err" id="ferr" role="alert"></div><button class="btn">Send feedback</button><p class="ok" id="fok" role="status"></p></form>
+<h2 id="sitemap">Sitemap</h2><ul id="sm"></ul></div></section>
+</main>
+<div id="fabstack">
+<div id="chatpanel" hidden role="dialog" aria-label="Budget helper chat" aria-modal="false">
+<div class="cp-head"><span class="cp-who"><span class="cp-avatar" aria-hidden="true">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 3 3 6.4 3 10.5c0 2.4 1.4 4.5 3.5 5.9L6 21l4.2-2.1c.6.1 1.2.1 1.8.1 5 0 9-3.4 9-7.5S17 3 12 3Z"/><circle cx="8.5" cy="10.5" r=".75" fill="currentColor" stroke="none"/><circle cx="12" cy="10.5" r=".75" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10.5" r=".75" fill="currentColor" stroke="none"/></svg>
+</span>Budget helper</span><button id="chatclose" class="ghost" aria-label="Close chat">✕</button></div>
+<p class="mut cp-note">Matches keywords to prepared lessons. Educational only, not financial advice.</p>
+<div class="log" id="log" role="log" aria-live="polite" aria-label="Conversation"></div>
+<div class="row" id="chips"></div>
+<form id="cf" class="row" style="flex-wrap:nowrap"><label class="sr" for="ci">Your question</label><input id="ci" placeholder="Ask about saving, needs, wants..." autocomplete="off"><button class="btn">Send</button></form>
+</div>
+<button id="chatfab" class="btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="chatpanel">
+<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.4 3 10.5c0 2.4 1.4 4.5 3.5 5.9L6 21l4.2-2.1c.6.1 1.2.1 1.8.1 5 0 9-3.4 9-7.5S17 3 12 3Z"/></svg>
+<span class="sr">Open budget helper chat</span></button>
+<button id="totop" class="ghost" aria-label="Back to top">↑ Top</button>
+</div>
+<footer><div class="wrap"><p><b>BudgetBasics</b> teaches general budgeting concepts and is not financial advice.</p><ul id="fn"></ul><p>All data stays in this browser session.</p></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script></body></html>
